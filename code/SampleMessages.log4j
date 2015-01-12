@@ -1,0 +1,12 @@
+<log4j:event logger="DEBUG.database.ConnectionPool" timestamp="1420561573277" level="DEBUG" thread="main">
+<log4j:message><![CDATA[MethodName:ConenctionPool ClassName:database.ConnectionPool]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="Error.database.ConnectionPool" timestamp="1420561573286" level="ERROR" thread="main">
+<log4j:message><![CDATA[error Message:C:\Users\Administrator\workspace\code\bin\parameter.properties (系统找不到指定的文件。), below method:]]></log4j:message>
+</log4j:event>
+
+<log4j:event logger="Error.database.ConnectionPool" timestamp="1420561573286" level="ERROR" thread="main">
+<log4j:message><![CDATA[MethodName:ConenctionPool ClassName:database.ConnectionPool]]></log4j:message>
+</log4j:event>
+
