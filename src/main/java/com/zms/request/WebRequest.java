@@ -16,7 +16,9 @@ import com.zms.mycompany.HomeController;
 @Controller
 public class WebRequest {
 
-	private static final Logger logger = LoggerFactory.getLogger(WebRequest.class);	
+	private static final Logger logger = LoggerFactory.getLogger(WebRequest.class);
+	private static final Logger errorLogger = LoggerFactory.getLogger(WebRequest.class);
+	
 	@RequestMapping(value = "/process", method = RequestMethod.GET)
 	public void process(Locale locale, PrintWriter printWriter){
 		printWriter.println("welcome back");
