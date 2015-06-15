@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMax" value="ERROR" />
+			<param name="LevelMin" value="TRACE" />
+		</filter>
+	</appender>
+	
+	
+	<!-- Application Loggers -->
+	<appender name="file" class="org.apache.log4j.FileAppender">
+		<param name="File" value="${catalina.home}/logs/Test/file.log" />
+		<param name="Threshold" value="info" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] {%c:%L}-%m%n" />
+		</layout>
+	</appender>
+	
+	<appender name="dailyRollingFile" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="info"/>
+		<param name="ImmediateFlush" value="true"/>
+		<param name="File" value="${catalina.home}/logs/Test//dailyRollingFile.log"/>
+		<param name="DatePattern" value="'.'yyyy-MM-dd'.log'"></param>
+		<layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param>  
+        </layout> 
+	</appender>
+	
+	<appender name="railyFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.home}/logs/Test//railyFile.log"></param>  
+        <param name="ImmediateFlush" value="true"/>  
+        <param name="Threshold" value="info"></param>  
+        <param name="Append" value="true"></param>  
+        <param name="MaxFileSize" value="30MB"></param>  
+        <param name="MaxBackupIndex" value="100"></param>  
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param>  
+        </layout>  
+	</appender>
+	
+	<logger name="com.zms.welcome">
+		<level value="info" />		
+	</logger>
+	
+	<!-- 3rdparty Loggers -->
+	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.beans">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.context">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.web">
+		<level value="info" />
+	</logger>
+
+	<!-- Root Logger -->
+	<root>
+		<level value="INFO"></level>		
+		<appender-ref ref="console" />
+		<!--
+		<appender-ref ref="file" /> 						
+		<appender-ref ref="dailyRollingFile" />
+		<appender-ref ref="railyFile" />
+		 -->
+	</root>
+	
+</log4j:configuration>
